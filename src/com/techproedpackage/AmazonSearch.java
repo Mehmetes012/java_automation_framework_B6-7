@@ -48,9 +48,14 @@ public class AmazonSearch {
 
         //To sort teh prices, I can use collection. First I convert the List of WebElements to List String
         List<String> priceList=new ArrayList<>();
+//        for (int i=0;i<numOfItem;i++){
+//            priceList.add(wholePartPrice.get(i).getText());
+//        }
+        //Updating this line to get the entire price with cents
         for (int i=0;i<numOfItem;i++){
-            priceList.add(wholePartPrice.get(i).getText());
-        }
+            if(!wholePartPrice.get(i).getText().isEmpty()){
+                priceList.add(wholePartPrice.get(i).getText()+"."+decimalPartPrice.get(i).getText());
+            }}
 
         System.out.println();//Going to the next line
         System.out.println("Unsorted Price List : "+priceList);
